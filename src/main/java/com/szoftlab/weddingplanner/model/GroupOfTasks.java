@@ -15,7 +15,7 @@ public class GroupOfTasks {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "groupOfTasks")
+    @OneToMany
     private List<WeddingTask> taskList;
 
     private GroupOfTasks() {}
