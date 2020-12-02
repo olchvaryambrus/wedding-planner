@@ -10,6 +10,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/groups")
+//ez csak ideiglenes
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class GroupOfTasksController {
 
     private GroupOfTasksService service;
@@ -35,7 +37,6 @@ public class GroupOfTasksController {
 
     @PutMapping("/{id}")
     GroupOfTasks replaceGroupOfTasks(@RequestBody GroupOfTasks newGroup, @PathVariable Long id) {
-
         return service.findById(id)
                 .map(changedGroup -> {
                     changedGroup.setName(newGroup.getName());

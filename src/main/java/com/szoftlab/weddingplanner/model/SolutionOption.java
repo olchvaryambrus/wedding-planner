@@ -1,20 +1,17 @@
 package com.szoftlab.weddingplanner.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public @Data
-class GroupOfTasks {
+public class SolutionOption {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +19,10 @@ class GroupOfTasks {
 
     private String name;
 
-    private Boolean isDone;
+    private String text;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group",fetch=FetchType.LAZY)
-    private List<WeddingTask> taskList;
+    @ManyToOne
+    @JsonIgnore
+    private WeddingTask task;
+
 }

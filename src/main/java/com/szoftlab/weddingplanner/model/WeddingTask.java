@@ -1,9 +1,17 @@
 package com.szoftlab.weddingplanner.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class WeddingTask {
+@Getter
+@Setter
+@NoArgsConstructor
+public @Data
+class WeddingTask {
 
 
     @Id
@@ -12,32 +20,17 @@ public class WeddingTask {
 
     private String name;
 
+    private Boolean isDone;
+
     @ManyToOne
+    @ToString.Exclude
+    @JsonIgnore
     private GroupOfTasks group;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "task",fetch=FetchType.LAZY)
+    private List<TaskNote> noteList;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "task",fetch=FetchType.LAZY)
+    private List<SolutionOption> solutionOptions;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public GroupOfTasks getGroup() {
-        return group;
-    }
-
-    public void setGroup(GroupOfTasks group) {
-        this.group = group;
-    }
 }
