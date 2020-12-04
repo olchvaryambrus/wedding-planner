@@ -20,7 +20,7 @@ public class NoteController {
         return service.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/task/{id}")
     public List<TaskNote> getByTaskId(@PathVariable Long id) { return service.findByTaskId(id); }
 
     @PostMapping("/create")

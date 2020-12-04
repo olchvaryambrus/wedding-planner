@@ -21,11 +21,15 @@ public class WeddingTaskService {
         return repository.findAll();
     }
 
-
     public Optional<WeddingTask> findById(Long Id){
         return repository.findById(Id);
     }
 
+    public List<WeddingTask> findByGroupId(Long id) { return repository.findByGroupId(id); }
+
+    public long countAll() { return repository.count(); }
+
+    public long countByIsDoneTrue() { return repository.countByIsDoneTrue(); }
 
     public WeddingTask save(WeddingTask newTask){
         return repository.save(newTask);

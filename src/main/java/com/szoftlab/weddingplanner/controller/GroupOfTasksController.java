@@ -35,7 +35,7 @@ public class GroupOfTasksController {
     }
 
     @PutMapping("/{id}")
-    GroupOfTasks replaceGroupOfTasks(@RequestBody GroupOfTasks newGroup, @PathVariable Long id) {
+    public GroupOfTasks replaceGroupOfTasks(@RequestBody GroupOfTasks newGroup, @PathVariable Long id) {
         return service.findById(id)
                 .map(changedGroup -> {
                     changedGroup.setName(newGroup.getName());

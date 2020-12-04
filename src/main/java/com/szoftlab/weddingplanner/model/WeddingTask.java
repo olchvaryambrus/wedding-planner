@@ -8,8 +8,6 @@ import java.util.List;
 
 @Data
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 public class WeddingTask {
 
@@ -24,7 +22,6 @@ public class WeddingTask {
 
     @ManyToOne
     @ToString.Exclude
-    @JsonIgnore
     private GroupOfTasks group;
 
     @JsonIgnore
@@ -35,4 +32,52 @@ public class WeddingTask {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "task",fetch=FetchType.LAZY)
     private List<SolutionOption> solutionOptions;
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(Boolean done) {
+        isDone = done;
+    }
+
+    public GroupOfTasks getGroup() {
+        return group;
+    }
+
+    public void setGroup(GroupOfTasks group) {
+        this.group = group;
+    }
+
+    public List<TaskNote> getNoteList() {
+        return noteList;
+    }
+
+    public void setNoteList(List<TaskNote> noteList) {
+        this.noteList = noteList;
+    }
+
+    public List<SolutionOption> getSolutionOptions() {
+        return solutionOptions;
+    }
+
+    public void setSolutionOptions(List<SolutionOption> solutionOptions) {
+        this.solutionOptions = solutionOptions;
+    }
 }

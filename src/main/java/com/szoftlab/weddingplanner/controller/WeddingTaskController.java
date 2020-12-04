@@ -29,13 +29,22 @@ public class WeddingTaskController {
         return service.findById(id);
     }
 
+    @GetMapping("/groupId/{id}")
+    public List<WeddingTask> getByGroupId(@PathVariable Long id) { return service.findByGroupId(id); }
+
+    @GetMapping("/countAll")
+    public long getCountAllTask() { return service.countAll(); }
+
+    @GetMapping("/countDone")
+    public long getCountByIsDone() { return service.countByIsDoneTrue(); }
+
     @PostMapping("/create")
     public WeddingTask postWeddingTask(@RequestBody WeddingTask newTask){
         return service.save(newTask);
     }
 
     @PutMapping("/{id}")
-    WeddingTask replaceWeddingTask(@RequestBody WeddingTask newTask, @PathVariable Long id) {
+    public WeddingTask replaceWeddingTask(@RequestBody WeddingTask newTask, @PathVariable Long id) {
 
         return service.findById(id)
                 .map(changedTask -> {

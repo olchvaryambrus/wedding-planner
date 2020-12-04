@@ -17,7 +17,7 @@ public class SolutionOptionController {
     public SolutionOptionController(SolutionOptionService solutionOptionService) { this.service = solutionOptionService; }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/taskId/{id}")
     public List<SolutionOption> getByTaskId(@PathVariable Long id) { return service.findByTaskId(id); }
 
     @PostMapping("/create")
