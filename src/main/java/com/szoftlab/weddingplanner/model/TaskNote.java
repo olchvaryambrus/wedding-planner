@@ -1,12 +1,14 @@
 package com.szoftlab.weddingplanner.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+@Data
 @Entity
 @Getter
 @Setter
@@ -19,7 +21,8 @@ public class TaskNote {
 
     private String text;
 
+
+    @JoinColumn(name = "task_id")
     @ManyToOne
-    @JsonIgnore
     private WeddingTask task;
 }

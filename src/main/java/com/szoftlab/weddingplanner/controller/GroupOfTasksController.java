@@ -10,8 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/groups")
-//ez csak ideiglenes
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class GroupOfTasksController {
 
     private GroupOfTasksService service;
@@ -40,6 +39,7 @@ public class GroupOfTasksController {
         return service.findById(id)
                 .map(changedGroup -> {
                     changedGroup.setName(newGroup.getName());
+                    changedGroup.setIsDone(newGroup.getIsDone());
                     changedGroup.setTaskList(newGroup.getTaskList());
                     return service.save(changedGroup);
                 })

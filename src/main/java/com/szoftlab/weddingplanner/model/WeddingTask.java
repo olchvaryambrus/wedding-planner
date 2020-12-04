@@ -6,12 +6,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public @Data
-class WeddingTask {
+public class WeddingTask {
 
 
     @Id
@@ -27,9 +27,11 @@ class WeddingTask {
     @JsonIgnore
     private GroupOfTasks group;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "task",fetch=FetchType.LAZY)
     private List<TaskNote> noteList;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "task",fetch=FetchType.LAZY)
     private List<SolutionOption> solutionOptions;
 

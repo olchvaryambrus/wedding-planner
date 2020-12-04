@@ -1,20 +1,18 @@
 package com.szoftlab.weddingplanner.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public @Data
-class GroupOfTasks {
+@AllArgsConstructor
+public class GroupOfTasks {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

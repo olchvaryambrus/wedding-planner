@@ -1,6 +1,5 @@
 package com.szoftlab.weddingplanner.controller;
 
-import com.szoftlab.weddingplanner.model.GroupOfTasks;
 import com.szoftlab.weddingplanner.model.WeddingTask;
 import com.szoftlab.weddingplanner.service.WeddingTaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/tasks")
+@CrossOrigin(origins = "http://localhost:4200")
 public class WeddingTaskController {
 
     private WeddingTaskService service;
@@ -40,7 +40,10 @@ public class WeddingTaskController {
         return service.findById(id)
                 .map(changedTask -> {
                     changedTask.setName(newTask.getName());
+                    changedTask.setIsDone(newTask.getIsDone());
                     changedTask.setGroup(newTask.getGroup());
+                    changedTask.setNoteList(newTask.getNoteList());
+                    changedTask.setSolutionOptions(newTask.getSolutionOptions());
                     return service.save(changedTask);
                 })
                 .orElseGet(() -> {
