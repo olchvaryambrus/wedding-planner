@@ -25,4 +25,9 @@ public class NoteController {
 
     @PostMapping("/create")
     public TaskNote postTaskNote(@RequestBody TaskNote newNote) { return this.service.save(newNote); }
+
+    @DeleteMapping("/{id}")
+    public void deleteTaskNoteById(@PathVariable Long id) {
+        service.deleteById(id);
+    }
 }

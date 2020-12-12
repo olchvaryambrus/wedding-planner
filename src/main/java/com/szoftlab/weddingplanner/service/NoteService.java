@@ -24,4 +24,8 @@ public class NoteService {
     public List<TaskNote> findByTaskId(Long id) { return repository.findByTaskId(id); }
 
     public TaskNote save(TaskNote newNote) { return repository.save(newNote); }
+
+    public void deleteById(Long Id){
+        repository.deleteById(Id);
+    }
 }

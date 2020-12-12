@@ -18,11 +18,21 @@ public class GroupOfTasks {
 
     private String name;
 
-    private Boolean isDone;
+    private Boolean isDone = false;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group",fetch=FetchType.LAZY)
     private List<WeddingTask> taskList;
+
+/*
+    @PreRemove
+    public void checkTasksBeforeRemoval() {
+        if (taskList.size() > 0) {
+            throw new RuntimeException("Nem törölhető olyan csoport, amelyhez már hozzá van rendelve feladat!");
+        }
+    }
+
+ */
 
 
     public Long getId() {

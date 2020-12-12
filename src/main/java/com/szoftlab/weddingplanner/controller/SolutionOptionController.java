@@ -22,4 +22,9 @@ public class SolutionOptionController {
 
     @PostMapping("/create")
     public SolutionOption postSolutionOption(@RequestBody SolutionOption newOption) { return this.service.save(newOption); }
+
+    @DeleteMapping("/{id}")
+    public void deleteSolutionOptionById(@PathVariable Long id) {
+        service.deleteById(id);
+    }
 }

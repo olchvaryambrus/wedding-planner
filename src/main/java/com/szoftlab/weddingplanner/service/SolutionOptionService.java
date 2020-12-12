@@ -20,4 +20,8 @@ public class SolutionOptionService {
 
     public SolutionOption save(SolutionOption newOption) { return repository.save(newOption); }
 
+    public void deleteById(Long Id){
+        repository.deleteById(Id);
+    }
+
 }

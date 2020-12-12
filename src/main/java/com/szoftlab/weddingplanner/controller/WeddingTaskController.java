@@ -38,6 +38,12 @@ public class WeddingTaskController {
     @GetMapping("/countDone")
     public long getCountByIsDone() { return service.countByIsDoneTrue(); }
 
+    @GetMapping("/countList")
+    public List<Long> getCountList() { return service.getCountList(); }
+
+    @PostMapping("/createAll")
+    public Iterable<WeddingTask> postAllWeddingTask(@RequestBody Iterable<WeddingTask> newTasks) { return service.saveAll(newTasks); }
+
     @PostMapping("/create")
     public WeddingTask postWeddingTask(@RequestBody WeddingTask newTask){
         return service.save(newTask);
@@ -45,12 +51,17 @@ public class WeddingTaskController {
 
     @PutMapping("/{id}")
     public WeddingTask replaceWeddingTask(@RequestBody WeddingTask newTask, @PathVariable Long id) {
-
         return service.findById(id)
                 .map(changedTask -> {
                     changedTask.setName(newTask.getName());
                     changedTask.setIsDone(newTask.getIsDone());
+                    changedTask.setType(newTask.getType());
                     changedTask.setGroup(newTask.getGroup());
+                    changedTask.setDate(newTask.getDate());
+                    changedTask.setStreet(newTask.getStreet());
+                    changedTask.setHouseNum(newTask.getHouseNum());
+                    changedTask.setCity(newTask.getCity());
+                    changedTask.setPostalCode(newTask.getPostalCode());
                     changedTask.setNoteList(newTask.getNoteList());
                     changedTask.setSolutionOptions(newTask.getSolutionOptions());
                     return service.save(changedTask);

@@ -18,11 +18,22 @@ public class WeddingTask {
 
     private String name;
 
-    private Boolean isDone;
+    private Boolean isDone = false;
+
+    private TaskTypeEnum type;
 
     @ManyToOne
-    @ToString.Exclude
     private GroupOfTasks group;
+
+    private String date;
+
+    private String street;
+
+    private String houseNum;
+
+    private String city;
+
+    private Long postalCode;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "task",fetch=FetchType.LAZY)
@@ -57,12 +68,60 @@ public class WeddingTask {
         isDone = done;
     }
 
+    public TaskTypeEnum getType() {
+        return type;
+    }
+
+    public void setType(TaskTypeEnum type) {
+        this.type = type;
+    }
+
     public GroupOfTasks getGroup() {
         return group;
     }
 
     public void setGroup(GroupOfTasks group) {
         this.group = group;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getHouseNum() {
+        return houseNum;
+    }
+
+    public void setHouseNum(String houseNum) {
+        this.houseNum = houseNum;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Long getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(Long postalCode) {
+        this.postalCode = postalCode;
     }
 
     public List<TaskNote> getNoteList() {
