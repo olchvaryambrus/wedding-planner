@@ -26,7 +26,7 @@ public class WeddingTaskService {
         return repository.findById(Id);
     }
 
-    public List<WeddingTask> findByGroupId(Long id) { return repository.findByGroupId(id); }
+    public List<WeddingTask> findByGroupId(Long id) { return repository.findByGroupIdOrderById(id); }
 
     public long countAll() { return repository.count(); }
 
@@ -48,4 +48,6 @@ public class WeddingTaskService {
     public void deleteById(Long Id){
         repository.deleteById(Id);
     }
+
+    public void deleteAll(List<WeddingTask> taskList) { repository.deleteAll(taskList); }
 }

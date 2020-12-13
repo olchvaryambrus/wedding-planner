@@ -1,7 +1,6 @@
 package com.szoftlab.weddingplanner.service;
 
 import com.szoftlab.weddingplanner.model.SolutionOption;
-import com.szoftlab.weddingplanner.model.TaskNote;
 import com.szoftlab.weddingplanner.repository.SolutionOptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

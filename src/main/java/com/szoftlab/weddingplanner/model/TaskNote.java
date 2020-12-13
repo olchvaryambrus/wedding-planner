@@ -1,18 +1,8 @@
 package com.szoftlab.weddingplanner.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 
-@Data
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
 public class TaskNote {
 
     @Id
@@ -25,4 +15,30 @@ public class TaskNote {
     @JoinColumn(name = "task_id")
     @ManyToOne
     private WeddingTask task;
+
+    public TaskNote() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public WeddingTask getTask() {
+        return task;
+    }
+
+    public void setTask(WeddingTask task) {
+        this.task = task;
+    }
 }

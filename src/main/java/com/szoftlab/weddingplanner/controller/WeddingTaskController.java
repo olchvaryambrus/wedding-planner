@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/tasks")
-@CrossOrigin(origins = "http://localhost:4200")
 public class WeddingTaskController {
 
     private WeddingTaskService service;
@@ -75,5 +74,10 @@ public class WeddingTaskController {
     @DeleteMapping("/{id}")
     public void deleteWeddingTaskById(@PathVariable Long id) {
         service.deleteById(id);
+    }
+
+    @DeleteMapping("/deleteList")
+    public void deleteWeddingTaskList(@RequestBody List<WeddingTask> taskList) {
+        service.deleteAll(taskList);
     }
 }

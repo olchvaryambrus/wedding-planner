@@ -1,7 +1,6 @@
 package com.szoftlab.weddingplanner.repository;
 
 import com.szoftlab.weddingplanner.model.SolutionOption;
-import com.szoftlab.weddingplanner.model.TaskNote;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

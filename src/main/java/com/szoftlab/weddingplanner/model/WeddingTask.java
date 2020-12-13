@@ -1,14 +1,11 @@
 package com.szoftlab.weddingplanner.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
 @Entity
-@NoArgsConstructor
 public class WeddingTask {
 
 

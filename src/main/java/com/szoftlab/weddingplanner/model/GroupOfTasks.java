@@ -1,15 +1,11 @@
 package com.szoftlab.weddingplanner.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class GroupOfTasks {
 
     @Id
@@ -24,16 +20,15 @@ public class GroupOfTasks {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group",fetch=FetchType.LAZY)
     private List<WeddingTask> taskList;
 
-/*
-    @PreRemove
-    public void checkTasksBeforeRemoval() {
-        if (taskList.size() > 0) {
-            throw new RuntimeException("Nem törölhető olyan csoport, amelyhez már hozzá van rendelve feladat!");
-        }
+
+    public GroupOfTasks(Long id, String name, Boolean isDone, List<WeddingTask> taskList) {
+        this.id = id;
+        this.name = name;
+        this.isDone = isDone;
+        this.taskList = taskList;
     }
 
- */
-
+    public GroupOfTasks() {}
 
     public Long getId() {
         return id;

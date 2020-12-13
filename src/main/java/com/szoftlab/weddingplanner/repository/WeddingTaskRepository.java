@@ -11,7 +11,7 @@ public interface WeddingTaskRepository extends CrudRepository<WeddingTask, Long>
 
     List<WeddingTask> findAll();
 
-    List<WeddingTask> findByGroupId(Long id);
+    List<WeddingTask> findByGroupIdOrderById(Long id);
 
     long countByIsDoneTrue();
 }

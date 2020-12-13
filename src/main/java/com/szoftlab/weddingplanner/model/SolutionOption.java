@@ -1,18 +1,9 @@
 package com.szoftlab.weddingplanner.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
 public class SolutionOption {
 
     @Id
@@ -26,4 +17,37 @@ public class SolutionOption {
     @ManyToOne
     private WeddingTask task;
 
+    public SolutionOption() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public WeddingTask getTask() {
+        return task;
+    }
+
+    public void setTask(WeddingTask task) {
+        this.task = task;
+    }
 }
